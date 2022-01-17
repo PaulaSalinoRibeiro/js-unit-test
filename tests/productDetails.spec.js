@@ -26,15 +26,24 @@ const productDetails = require('../src/productDetails');
 
 */
 
-describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
-  it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    fail('Teste vazio!');
-    // ESCREVA SEUS TESTES ABAIXO:
-    // Teste se productDetails é uma função.
+describe('6 - Implemente os casos de teste para a função `productDetails`', () => {  
     // Teste se o retorno da função é um array.
-    // Teste se o array retornado pela função contém dois itens dentro.
-    // Teste se os dois itens dentro do array retornado pela função são objetos.
-    // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
-    // Teste se os dois productIds terminam com 123.
+  const firstProduct = 'Alcool gel';
+  const secondProduct = 'Máscara';
+  const arr = productDetails(firstProduct, secondProduct);
+  it('productDetails é uma função', () => {
+    expect(typeof productDetails).toBe('function');
+  });
+  it('array retornado pela função contém dois itens dentro', () => {
+    expect(productDetails(firstProduct, secondProduct).length).toBe(2);
+  });
+  it('os dois itens dentro do array retornado pela função são objetos', () => {
+    expect(typeof arr[0] && typeof arr[1]).toEqual('object');
+  });
+  it('quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si', () => {
+    expect(arr[0]).not.toContain(arr[1]);
+  });
+  it('os dois productIds terminam com 123', () => {
+    expect(arr[0].details.productId && arr[1].details.productId).toContain('123')
   });
 });
