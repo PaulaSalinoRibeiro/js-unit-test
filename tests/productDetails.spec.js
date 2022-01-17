@@ -26,8 +26,7 @@ const productDetails = require('../src/productDetails');
 
 */
 
-describe('6 - Implemente os casos de teste para a função `productDetails`', () => {  
-    // Teste se o retorno da função é um array.
+describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
   const firstProduct = 'Alcool gel';
   const secondProduct = 'Máscara';
   const arr = productDetails(firstProduct, secondProduct);
@@ -45,5 +44,8 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
   });
   it('os dois productIds terminam com 123', () => {
     expect(arr[0].details.productId && arr[1].details.productId).toContain('123')
+  });
+  it('se o retorno da função é um array', () => {
+    expect(Array.isArray(arr)).toBeTruthy();
   });
 });
