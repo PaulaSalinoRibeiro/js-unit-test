@@ -1,4 +1,4 @@
-const createMenu = require('../src/restaurant');
+const { createMenu, orderFromMenu } = require('../src/restaurant');
  
 /*
   Você é responsável por escrever o código do sistema de pedidos de um restaurante. Deve ser possível, através desse sistema, cadastrar um menu. Dado que um menu foi cadastrado, o sistema deve disponibilizar um objeto através do qual se consegue:
@@ -88,8 +88,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     });
 
     // TESTE 5: Verifique se, ao chamar uma função associada à chave `order` no objeto retornado,
-    // passando uma string como parâmetro (como `objetoRetornado.order('coxinha')`), tal string é adicionada
-    // ao array retornado em `objetoRetornado.consumption`.
+    // passando uma string como parâmetro (como `objetoRetornado.order('coxinha')`), tal string é adicionada ao array retornado em `objetoRetornado.consumption`.
     // ```
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.order("coxinha");
@@ -98,10 +97,10 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
     // 
 
-    it('Verifique se, ao chamar uma função associada à chave order no objeto retornado, passando uma string como parâmetro (como objetoRetornado.order("coxinha")), tal string é adicionada', ()=> {
-      expect(createMenu().order).toEqual(createMenu.consumption[0]);
+    it('Verifique se, ao chamar uma função associada à chave order no objeto retornado, passando uma string como parâmetro (como objetoRetornado.order("coxinha")), tal string é adicionada ao array retornado em objetoRetornado.consumption.', ()=> {
+      expect(orderFromMenu('coxinha')).toEqual(createMenu().consumption[0]);
     });
-    
+
     // TESTE 6: Verifique se, ao adicionar três pedidos, dentre bebidas e comidas, o array `objetoRetornado.consumption` contém os itens pedidos.
     // ```
     // objetoRetornado.order("coxinha");
